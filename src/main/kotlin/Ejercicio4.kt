@@ -6,17 +6,20 @@ correspondientes a las notas: 95-100(excelente), 85-94(Notable), 75-84(Bueno),
  */
 
 fun main() {
-    val kardex: Map<String, Double> = mapOf(
-        "matematicas" to 50.0, "geografia" to 73.0, "español" to 80.0, "quimica" to 93.0, "historia" to 99.0
+    val calificaciones: Map<String, Double> = mapOf(
+        "conmutacion de enrutadores" to 70.0, "programacion movil" to 93.6, "programacion web" to 65.4,
+        "taller de investigacion" to 91.8, "actividad complementaria V" to 86.4, "programacion logica y funcional"
+                to 100.0,"filosofia" to 78.6
     )
-    println(calif(kardex))
+
+    println(calcularNota(calificaciones))
 
 }
 
-fun calif(notas: Map<String, Double>): Map<String, String> {
-    val des: MutableMap<String, String> = mutableMapOf()
-    for ((k, v) in notas) {
-        val d = when (v) {
+fun calcularNota(calificaciones: Map<String, Double>): Map<String, String> {
+    val resultados: MutableMap<String, String> = mutableMapOf()
+    for ((mat, cal) in calificaciones) {
+        val d = when (cal) {
             in 0.0..69.0 -> "Desempeño insuficiente"
             in 70.0..74.0 -> "Suficiente"
             in 75.0..84.0 -> "Bueno"
@@ -24,7 +27,7 @@ fun calif(notas: Map<String, Double>): Map<String, String> {
             in 95.0..100.0 -> "Excelente"
             else -> " "
         }
-        des[k.uppercase()] = d
+        resultados[mat.uppercase()] = d
     }
-    return des
+    return resultados
 }

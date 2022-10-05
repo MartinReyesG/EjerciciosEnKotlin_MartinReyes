@@ -8,13 +8,15 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 fun main() {
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.HALF_UP
-    val v1 = Triple(34.6, 12.8, -5.6)
-    val v2 = Pair(67.8, -9.6)
-    println(df.format(modulo3D(v1)))
-    println(df.format(modulo2D(v2)))
+    val formato = DecimalFormat("#.##")
+    formato.roundingMode = RoundingMode.HALF_UP
+    val vectorcito = Triple(50.04, 9.86, 42.2)
+
+    println(formato.format(calcularModuloVector(vectorcito)))
+
 }
 
-fun modulo3D(v: Triple<Double, Double, Double>) = sqrt(v.first.pow(2.0) + v.second.pow(2.0) + v.third.pow(2.0))
-fun modulo2D(v: Pair<Double, Double>) = sqrt(v.first.pow(2.0) + v.second.pow(2.0))
+fun calcularModuloVector(v: Triple<Double, Double, Double>): Double {
+     val res=sqrt(v.first.pow(2.0) + v.second.pow(2.0) + v.third.pow(2.0))
+    return res
+}

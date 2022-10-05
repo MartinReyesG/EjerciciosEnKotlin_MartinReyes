@@ -10,7 +10,7 @@ import kotlin.math.pow
 
 fun main() {
 
-    val lista = listOf(10.0, 45.0, 234.0, 56.7, 234.9, 888.8)
+    val lista = listOf(90.0, 56.0, 245.0, 256.7, 12.9, 5.9,19.6,6.4,22.0)
     println((resta(lista) { a -> sumaCuadrados(a) }))
 }
 

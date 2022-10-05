@@ -16,19 +16,19 @@ fun main(args: Array<String>) {
     data.add(29.0)
     data.add(30.0)
     data.add(31.0)
-    data.add(32.0)
-    data.add(33.0)
-    data.add(34.0)
-    data.add(35.0)
-    data.add(36.0)
+    data.add(50.0)
+    data.add(56.0)
+    data.add(39.0)
+    data.add(30.0)
+    data.add(31.0)
     data.add(39.0)
     data.add(50.0)
     data.add(56.0)
     data.sort()
-    println(atipicos(data))
+    println(datosAtipicos(data))
 }
 
-fun atipicos(input: List<Double>): List<Double> {
+fun datosAtipicos(input: List<Double>): List<Double> {
     val output: MutableList<Double> = ArrayList()
     var superior: List<Double> = ArrayList()
     var inferior: List<Double> = ArrayList()
@@ -40,9 +40,9 @@ fun atipicos(input: List<Double>): List<Double> {
         superior = input.subList(0, input.size / 2)
         inferior = input.subList(input.size / 2 + 1, input.size)
     }
-    val q1 = Media(superior)
+    val q1 = media(superior)
     println(q1)
-    val q3 = Media(inferior)
+    val q3 = media(inferior)
     println(q3)
     val iqr = q3 - q1
     val qinferior = q1 - 1.5 * iqr
@@ -53,7 +53,7 @@ fun atipicos(input: List<Double>): List<Double> {
     return output
 }
 
-private fun Media(data: List<Double>): Double {
+private fun media(data: List<Double>): Double {
     return if (data.size % 2 == 0) (data[data.size / 2] + data[data.size / 2 - 1]) / 2
     else data[data.size / 2]
 }
